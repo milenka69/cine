@@ -9,7 +9,7 @@ class GeneroAdmin(admin.ModelAdmin):
 class PeliculaAdmin(admin.ModelAdmin):
     list_display = ("nombre", "precio_form", "disponibilidad", "fecha_estreno", "genero", "imagen")
     search_fields = ("nombre",)
-    list_filter = ("genero__nombre",)
+    list_filter = ("genero",)
     list_editable = ("disponibilidad", "genero")
 
     def precio_form (self, obj):
@@ -18,4 +18,4 @@ class PeliculaAdmin(admin.ModelAdmin):
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = ("nombre", "correo", "cantidad", "fecha", "pelicula__nombre")
-    list_filter = ("pelicula__nombre",)
+    list_filter = ("pelicula",)
